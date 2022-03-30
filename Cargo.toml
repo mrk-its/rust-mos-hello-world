@@ -1,0 +1,24 @@
+[package]
+name = "rust-mos-hello-world"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.dev]
+lto = true
+opt-level = 2
+debug = 2
+codegen-units = 1
+
+[profile.release]
+opt-level = 3
+lto = true
+debug = 2
+
+[patch.crates-io]
+ufmt = {git="https://github.com/mrk-its/ufmt", branch="ptr_width_16_fix"}
+ufmt-write = {git="https://github.com/mrk-its/ufmt", branch="ptr_width_16_fix"}
+
+[dependencies]
+ufmt-stdio = "0"
